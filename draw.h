@@ -2,23 +2,50 @@
 #define DRAW_H_INCLUDED
 #include<windows.h>
 #include <iostream>
-using namespace std;
+#include <vector>
+#include <bits/stdc++.h>
 
+using namespace std;
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
 struct seat{
   string name;
   int x=100;
   int y=100;
+
   int maps[100][100];
 
 
 };
 
+
+    void gotoxy(int xa, int ya)
+    {
+        static HANDLE h = NULL;
+        if(!h)
+            h = GetStdHandle(STD_OUTPUT_HANDLE);
+        COORD c = { xa, ya };
+        SetConsoleCursorPosition(h,c);
+    }
+    void ShowConsoleCursor(bool showFlag)
+{
+    HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    CONSOLE_CURSOR_INFO     cursorInfo;
+
+    GetConsoleCursorInfo(out, &cursorInfo);
+    cursorInfo.bVisible = showFlag; // set the cursor visibility
+    SetConsoleCursorInfo(out, &cursorInfo);
+}
+
 class drawer{
-    seat s[5];
+    seat s[];
+
 public:
-    seat qa[5];
-    int check_frame=5;
+   //template <class sqq>
+   seat qa[];
+
+
     void color_select(int sk){
     switch(sk){
         case 1:
@@ -80,10 +107,14 @@ public:
         for (int j = 0; j != y; j++)
         {
         qa[hh].maps[i][j]=maa[i][j];
-        qa[hh].x=x;qa[hh].y=y;qa[hh].name="ib";
+        qa[hh].x=x;
+        qa[hh].y=y;
+        qa[hh].name="ib";
         qa[hh].maps[x+5][j]=6;
         }
     }
+
+
 
     }
 
@@ -114,7 +145,9 @@ public:
     void play_a(struct seat sa[0], int frame )
     {    int fps=0;
     int sas=frame;
+
         for(int c=0;c<sas;c++){
+
         clear_s();
         if(fps==0){
 
@@ -130,7 +163,7 @@ public:
 
 
     void test_f(){
-   check_frame=5;
+   int check_frame=5;
 
             for(int h=0;h<check_frame;h++)
     {
@@ -321,22 +354,6 @@ public:
 
     void  clear_s(){system("cls");}
 };
-    void gotoxy(int xa, int ya)
-    {
-        static HANDLE h = NULL;
-        if(!h)
-            h = GetStdHandle(STD_OUTPUT_HANDLE);
-        COORD c = { xa, ya };
-        SetConsoleCursorPosition(h,c);
-    }
-    void ShowConsoleCursor(bool showFlag)
-{
-    HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    CONSOLE_CURSOR_INFO     cursorInfo;
 
-    GetConsoleCursorInfo(out, &cursorInfo);
-    cursorInfo.bVisible = showFlag; // set the cursor visibility
-    SetConsoleCursorInfo(out, &cursorInfo);
-}
 #endif // DRAW_H_INCLUDED

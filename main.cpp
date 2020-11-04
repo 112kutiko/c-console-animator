@@ -3,9 +3,10 @@ drawer draw;
 
 int main()
 {
-ShowConsoleCursor(false);
+
 system("title Animator");
-draw.ins(draw.qa,5);
+ShowConsoleCursor(false);
+draw.ins(draw.s,5);
 
 
 int ms[20][23]={{1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,1,1,1,1,1,12,1,1},
@@ -93,14 +94,14 @@ int ms[20][23]={{1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,1,1,1,1,1,12,1,1},
   {1,1,1,1,1,1,1,1,1,12,12,12,12,12,12,1}
     };
 
-draw.take_and_send(ms3,3,20,24);
-draw.take_and_send(ms2,2,20,24);
-draw.take_and_send(ms1,1,20,24);
-draw.take_and_send(ms,0,20,23);
-draw.play_a(draw.qa,5);
+//draw.take_and_send(ms3,3,20,24);
+//draw.take_and_send(ms2,2,20,24);
+//draw.take_and_send(ms1,1,20,24);
+//draw.take_and_send(ms,0,20,23);
+//draw.play_a(draw.qa,5);
 
-/// test
-   //draw.test_f();
-/// end
+
+draw.test_f();
+
     return 0;
 }
