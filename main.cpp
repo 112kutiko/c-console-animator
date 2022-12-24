@@ -1,6 +1,4 @@
 #include "draw.h"
-drawer draw;
-
 int main()
 {
     WindowsSettings settings;
@@ -26,5 +24,4 @@ int main()
     cout << "end" << endl;
 
 
-    return 0;
-}
+    return 0;}
